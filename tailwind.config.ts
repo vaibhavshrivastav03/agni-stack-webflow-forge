@@ -204,6 +204,58 @@ export default {
 					'100%': {
 						transform: 'rotate(360deg)'
 					}
+				},
+				'neon-glow': {
+					'0%, 100%': {
+						boxShadow: '0 0 20px hsl(var(--primary) / 0.5), 0 0 40px hsl(var(--primary) / 0.3)'
+					},
+					'50%': {
+						boxShadow: '0 0 30px hsl(var(--primary) / 0.8), 0 0 60px hsl(var(--primary) / 0.5)'
+					}
+				},
+				'glitch': {
+					'0%, 100%': { transform: 'translate(0)', filter: 'hue-rotate(0deg)' },
+					'10%': { transform: 'translate(-2px, 2px)', filter: 'hue-rotate(90deg)' },
+					'20%': { transform: 'translate(2px, -2px)', filter: 'hue-rotate(180deg)' },
+					'30%': { transform: 'translate(-2px, -2px)', filter: 'hue-rotate(270deg)' },
+					'40%': { transform: 'translate(2px, 2px)', filter: 'hue-rotate(360deg)' },
+					'50%': { transform: 'translate(-2px, 2px)', filter: 'hue-rotate(90deg)' },
+					'60%': { transform: 'translate(2px, -2px)', filter: 'hue-rotate(180deg)' },
+					'70%': { transform: 'translate(-2px, -2px)', filter: 'hue-rotate(270deg)' },
+					'80%': { transform: 'translate(2px, 2px)', filter: 'hue-rotate(360deg)' },
+					'90%': { transform: 'translate(-2px, -2px)', filter: 'hue-rotate(90deg)' }
+				},
+				'cyber-pulse': {
+					'0%': { 
+						boxShadow: '0 0 0 0 hsl(var(--primary) / 0.7)',
+						transform: 'scale(1)'
+					},
+					'70%': { 
+						boxShadow: '0 0 0 20px hsl(var(--primary) / 0)',
+						transform: 'scale(1.05)'
+					},
+					'100%': { 
+						boxShadow: '0 0 0 0 hsl(var(--primary) / 0)',
+						transform: 'scale(1)'
+					}
+				},
+				'hologram': {
+					'0%, 100%': { 
+						opacity: '0.8', 
+						transform: 'perspective(400px) rotateX(0deg) rotateY(0deg)' 
+					},
+					'25%': { 
+						opacity: '1', 
+						transform: 'perspective(400px) rotateX(5deg) rotateY(5deg)' 
+					},
+					'50%': { 
+						opacity: '0.9', 
+						transform: 'perspective(400px) rotateX(0deg) rotateY(10deg)' 
+					},
+					'75%': { 
+						opacity: '1', 
+						transform: 'perspective(400px) rotateX(-5deg) rotateY(5deg)' 
+					}
 				}
 			},
 			animation: {
@@ -219,7 +271,11 @@ export default {
 				'bounce-subtle': 'bounce-subtle 2s ease-in-out infinite',
 				'shimmer': 'shimmer 2s linear infinite',
 				'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
-				'spin-slow': 'spin-slow 3s linear infinite'
+				'spin-slow': 'spin-slow 8s linear infinite',
+				'neon-glow': 'neon-glow 2s ease-in-out infinite',
+				'glitch': 'glitch 0.5s ease-in-out',
+				'cyber-pulse': 'cyber-pulse 2s infinite',
+				'hologram': 'hologram 4s ease-in-out infinite'
 			}
 		}
 	},

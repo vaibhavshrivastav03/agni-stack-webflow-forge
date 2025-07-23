@@ -15,7 +15,7 @@ import {
   Globe,
   Users
 } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import futuristicBanner from "@/assets/futuristic-banner.jpg";
 import techCircuit from "@/assets/tech-circuit.jpg";
 import teamWork from "@/assets/team-work.jpg";
 import codingLaptop from "@/assets/coding-laptop.jpg";
@@ -62,28 +62,56 @@ const Home = () => {
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroBg})` }}
+          style={{ backgroundImage: `url(${futuristicBanner})` }}
         >
-          <div className="absolute inset-0 bg-gradient-hero/80 backdrop-blur-[1px]"></div>
+          <div className="absolute inset-0 bg-gradient-hero/70 backdrop-blur-[1px]"></div>
+        </div>
+        
+        {/* Digital Matrix Rain Effect */}
+        <div className="absolute inset-0 opacity-20 pointer-events-none overflow-hidden">
+          {Array.from({ length: 20 }).map((_, i) => (
+            <div
+              key={i}
+              className="absolute text-primary font-mono text-sm animate-[matrix-rain_10s_linear_infinite]"
+              style={{
+                left: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 10}s`,
+                animationDuration: `${8 + Math.random() * 4}s`
+              }}
+            >
+              {Array.from({ length: 20 }).map((_, j) => (
+                <div key={j} className="mb-2">
+                  {Math.random() > 0.5 ? '1' : '0'}
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
         
         {/* Animated Tech Elements */}
-        <div className="absolute top-20 left-10 w-24 h-24 rounded-2xl overflow-hidden animate-float opacity-20">
-          <img src={techCircuit} alt="" className="w-full h-full object-cover" />
+        <div className="absolute top-20 left-10 w-24 h-24 rounded-2xl overflow-hidden animate-hologram opacity-30 border border-primary/30">
+          <img src={techCircuit} alt="" className="w-full h-full object-cover animate-glitch" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent"></div>
         </div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 rounded-full overflow-hidden animate-float opacity-30" style={{ animationDelay: "1s" }}>
+        <div className="absolute bottom-20 right-10 w-32 h-32 rounded-full overflow-hidden animate-cyber-pulse opacity-40 border-2 border-secondary/50" style={{ animationDelay: "1s" }}>
           <img src={codingLaptop} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-br from-secondary/30 to-transparent"></div>
         </div>
-        <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-secondary/30 rounded-full animate-bounce-subtle" style={{ animationDelay: "2s" }}>
+        <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-secondary/20 rounded-full animate-neon-glow backdrop-blur-sm border border-secondary" style={{ animationDelay: "2s" }}>
           <div className="w-full h-full flex items-center justify-center">
-            <Sparkles className="text-secondary-glow animate-pulse-slow" size={24} />
+            <Sparkles className="text-secondary-glow animate-glitch" size={24} />
           </div>
         </div>
-        <div className="absolute bottom-1/3 left-1/4 w-12 h-12 bg-accent/30 rounded-full animate-spin-slow">
+        <div className="absolute bottom-1/3 left-1/4 w-12 h-12 bg-accent/20 rounded-full animate-cyber-pulse backdrop-blur-sm border border-accent" style={{ animationDelay: "3s" }}>
           <div className="w-full h-full flex items-center justify-center">
-            <Globe className="text-accent-glow" size={20} />
+            <Globe className="text-accent-glow animate-spin-slow" size={20} />
           </div>
         </div>
+        
+        {/* Floating Geometric Shapes */}
+        <div className="absolute top-1/4 left-1/3 w-6 h-6 bg-primary/30 rotate-45 animate-float"></div>
+        <div className="absolute bottom-1/4 right-1/3 w-8 h-8 bg-accent/30 rounded-full animate-bounce-subtle"></div>
+        <div className="absolute top-2/3 left-1/5 w-4 h-4 bg-secondary/30 rounded-sm animate-pulse-slow"></div>
 
         <div className="container mx-auto px-6 relative z-10 h-full flex items-center">
           <div className="max-w-4xl mx-auto text-center">
@@ -106,8 +134,11 @@ const Home = () => {
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
               </Button>
-              <Button variant="outline" size="xl" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary backdrop-blur-sm" asChild>
-                <Link to="/portfolio">View Our Work</Link>
+              <Button variant="hero" size="xl" className="border-2 border-primary-foreground/50 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground hover:text-primary backdrop-blur-sm animate-neon-glow" asChild>
+                <Link to="/portfolio">
+                  View Our Work
+                  <Sparkles className="ml-2 animate-pulse" size={20} />
+                </Link>
               </Button>
             </div>
             
@@ -132,9 +163,10 @@ const Home = () => {
 
       {/* Stats Section */}
       <section className="py-20 bg-muted/30 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-10 left-10 w-40 h-40 bg-primary rounded-full animate-float"></div>
-          <div className="absolute bottom-10 right-10 w-32 h-32 bg-secondary rounded-full animate-bounce-subtle"></div>
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-40 h-40 bg-primary rounded-full animate-cyber-pulse"></div>
+          <div className="absolute bottom-10 right-10 w-32 h-32 bg-secondary rounded-full animate-neon-glow"></div>
+          <div className="absolute top-1/2 left-1/2 w-24 h-24 bg-accent rounded-full animate-hologram"></div>
         </div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -144,11 +176,11 @@ const Home = () => {
                 className="text-center animate-scale-in group cursor-pointer" 
                 style={{ animationDelay: `${index * 150}ms` }}
               >
-                <div className="bg-card rounded-2xl p-6 shadow-card hover:shadow-glow transition-all duration-500 group-hover:scale-105">
-                  <div className="text-4xl md:text-5xl font-bold text-primary mb-3 animate-pulse-slow">
+                <div className="bg-card/80 backdrop-blur-sm rounded-2xl p-6 shadow-card hover:shadow-glow transition-all duration-500 group-hover:scale-105 border border-primary/20 group-hover:border-primary/50 animate-cyber-pulse">
+                  <div className="text-4xl md:text-5xl font-bold text-primary mb-3 animate-glitch group-hover:animate-neon-glow">
                     {stat.number}
                   </div>
-                  <div className="text-muted-foreground text-sm md:text-base">
+                  <div className="text-muted-foreground text-sm md:text-base group-hover:text-primary transition-colors">
                     {stat.label}
                   </div>
                 </div>
