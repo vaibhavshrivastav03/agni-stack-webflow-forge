@@ -15,7 +15,7 @@ import {
   Globe,
   Users
 } from "lucide-react";
-import futuristicBanner from "@/assets/futuristic-banner.jpg";
+import itTechBanner from "@/assets/it-tech-banner.jpg";
 import techCircuit from "@/assets/tech-circuit.jpg";
 import teamWork from "@/assets/team-work.jpg";
 import codingLaptop from "@/assets/coding-laptop.jpg";
@@ -62,7 +62,7 @@ const Home = () => {
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${futuristicBanner})` }}
+          style={{ backgroundImage: `url(${itTechBanner})` }}
         >
           <div className="absolute inset-0 bg-gradient-hero/70 backdrop-blur-[1px]"></div>
         </div>
@@ -334,8 +334,11 @@ const Home = () => {
             <Button variant="secondary" size="xl" asChild>
               <Link to="/contact">Get Free Consultation</Link>
             </Button>
-            <Button variant="outline" size="xl" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
-              <Link to="/services">Explore Services</Link>
+            <Button variant="hero" size="xl" className="border-2 border-primary-foreground/50 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground hover:text-primary backdrop-blur-sm animate-neon-glow" asChild>
+              <Link to="/services">
+                Explore Services
+                <ArrowRight className="ml-2 animate-pulse" size={20} />
+              </Link>
             </Button>
           </div>
         </div>
