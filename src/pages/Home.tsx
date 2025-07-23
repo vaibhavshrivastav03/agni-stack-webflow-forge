@@ -115,10 +115,18 @@ const Home = () => {
 
         <div className="container mx-auto px-6 relative z-10 h-full flex items-center">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="animate-fade-in-up">
+            <div>
               <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                Ignite Your Digital
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-secondary via-accent to-secondary-glow animate-shimmer bg-[length:200%_100%]">
+                <span className="inline-block animate-fade-in-up opacity-0 animation-fill-forwards" style={{ animationDelay: "0ms" }}>
+                  Ignite
+                </span>{" "}
+                <span className="inline-block animate-fade-in-up opacity-0 animation-fill-forwards" style={{ animationDelay: "200ms" }}>
+                  Your
+                </span>{" "}
+                <span className="inline-block animate-fade-in-up opacity-0 animation-fill-forwards" style={{ animationDelay: "400ms" }}>
+                  Digital
+                </span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-secondary via-accent to-secondary-glow animate-fade-in-up opacity-0 animation-fill-forwards animate-pulse-slow" style={{ animationDelay: "600ms" }}>
                   Transformation
                 </span>
               </h1>
