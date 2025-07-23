@@ -26,7 +26,7 @@ const Header = () => {
             <img 
               src="/lovable-uploads/e3c6e122-2fbd-43ff-8ef2-eb803a635ca9.png" 
               alt="AgniStack Logo" 
-              className="h-12 w-auto"
+              className="h-16 w-auto"
             />
           </Link>
 
