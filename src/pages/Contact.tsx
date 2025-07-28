@@ -30,6 +30,9 @@ const Contact = () => {
     e.preventDefault();
     
     try {
+      console.log('Form submission started');
+      console.log('Form data:', formData);
+      
       // Create HTML formatted message
       const htmlMessage = `
         <h2>Contact Details</h2>
@@ -43,17 +46,27 @@ const Contact = () => {
         </div>
       `;
 
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        message: htmlMessage
+      };
+
+      console.log('Sending payload:', payload);
+
       const response = await fetch('https://mail.agnistack.com/index.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: htmlMessage
-        })
+        body: JSON.stringify(payload)
       });
+
+      console.log('Response status:', response.status);
+      console.log('Response ok:', response.ok);
+      
+      const responseText = await response.text();
+      console.log('Response text:', responseText);
 
       if (response.ok) {
         toast({
@@ -68,12 +81,13 @@ const Contact = () => {
           message: ""
         });
       } else {
-        throw new Error('Failed to send message');
+        throw new Error(`Server responded with status: ${response.status}`);
       }
     } catch (error) {
+      console.error('Submit error:', error);
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again.",
+        description: `Failed to send message: ${error.message}`,
         variant: "destructive"
       });
     }
