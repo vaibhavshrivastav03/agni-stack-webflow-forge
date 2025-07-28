@@ -126,7 +126,7 @@ const Home = () => {
                 <span className="inline-block animate-fade-in opacity-100" style={{ animationDelay: "400ms" }}>
                   Digital
                 </span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-secondary via-accent to-secondary-glow animate-fade-in opacity-100 animate-pulse-slow" style={{ animationDelay: "600ms" }}>
+                <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-secondary via-accent to-secondary-glow animate-fade-in opacity-100 animate-pulse-slow" style={{ animationDelay: "600ms" }}>
                   Transformation
                 </span>
               </h1>
