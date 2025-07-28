@@ -56,8 +56,10 @@ const Contact = () => {
 
       const response = await fetch('https://mail.agnistack.com/index.php', {
         method: 'POST',
+        mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
         body: JSON.stringify(payload)
       });
