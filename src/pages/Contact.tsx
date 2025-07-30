@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
 
 import { 
   Mail, 
@@ -16,8 +15,6 @@ import {
 } from "lucide-react";
 
 const Contact = () => {
-  const { toast } = useToast();
-  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,54 +23,41 @@ const Contact = () => {
     message: ""
   });
 
+  const [statusMessage, setStatusMessage] = useState<{
+    text: string;
+    type: 'success' | 'error';
+  } | null>(null);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setStatusMessage(null);
     
     try {
-      console.log('Form submission started');
-      console.log('Form data:', formData);
-      
-      // Create HTML formatted message
-      const htmlMessage = `
-        <h2>Contact Details</h2>
-        <p><strong>Name:</strong> ${formData.name}</p>
-        <p><strong>Email:</strong> ${formData.email}</p>
-        <p><strong>Phone:</strong> ${formData.phone || 'Not provided'}</p>
-        <p><strong>Service:</strong> ${formData.service || 'Not specified'}</p>
-        <p><strong>Project Details:</strong></p>
-        <div style="margin-left: 20px; padding: 10px; border-left: 3px solid #007bff;">
-          ${formData.message.replace(/\n/g, '<br>')}
-        </div>
-      `;
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
 
-      const payload = {
+      const raw = JSON.stringify({
         name: formData.name,
         email: formData.email,
-        message: htmlMessage
-      };
-
-      console.log('Sending payload:', payload);
-
-      const response = await fetch('https://mail.agnistack.com/index.php', {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify(payload)
+        phone: formData.phone,
+        service: formData.service,
+        message: formData.message
       });
 
-      console.log('Response status:', response.status);
-      console.log('Response ok:', response.ok);
-      
-      const responseText = await response.text();
-      console.log('Response text:', responseText);
+      const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow" as RequestRedirect
+      };
 
+      const response = await fetch("https://mail.agnistack.com/index.php", requestOptions);
+      const result = await response.text();
+      
       if (response.ok) {
-        toast({
-          title: "Message Sent!",
-          description: "Thank you for contacting us. We'll get back to you within 24 hours.",
+        setStatusMessage({
+          text: "Message sent successfully! We'll get back to you within 24 hours.",
+          type: 'success'
         });
         setFormData({
           name: "",
@@ -86,11 +70,10 @@ const Contact = () => {
         throw new Error(`Server responded with status: ${response.status}`);
       }
     } catch (error) {
-      console.error('Submit error:', error);
-      toast({
-        title: "Error",
-        description: `Failed to send message: ${error.message}`,
-        variant: "destructive"
+      console.error(error);
+      setStatusMessage({
+        text: "Failed to send message. Please try again later.",
+        type: 'error'
       });
     }
   };
@@ -173,6 +156,16 @@ const Contact = () => {
                 <h2 className="text-2xl md:text-3xl font-bold mb-6">
                   Send Us a <span className="text-primary">Message</span>
                 </h2>
+                
+                {statusMessage && (
+                  <div className={`p-4 rounded-lg mb-6 ${
+                    statusMessage.type === 'success' 
+                      ? 'bg-green-50 text-green-800 border border-green-200 dark:bg-green-900/20 dark:text-green-300 dark:border-green-800' 
+                      : 'bg-red-50 text-red-800 border border-red-200 dark:bg-red-900/20 dark:text-red-300 dark:border-red-800'
+                  }`}>
+                    {statusMessage.text}
+                  </div>
+                )}
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
