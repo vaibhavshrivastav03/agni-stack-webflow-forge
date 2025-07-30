@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import ServiceCard from "@/components/ServiceCard";
+import ContactModal from "@/components/ContactModal";
 import { Link } from "react-router-dom";
 import { 
   Code, 
@@ -136,12 +137,7 @@ const Home = () => {
               Transform your digital vision into reality with our expert team.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center animate-scale-in" style={{ animationDelay: "600ms" }}>
-              <Button variant="secondary" size="xl" className="group shadow-glow hover:shadow-[0_0_50px_hsl(var(--secondary)_/_0.5)] transition-all duration-300" asChild>
-                <Link to="/contact">
-                  Start Your Project
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                </Link>
-              </Button>
+              <ContactModal />
               <Button variant="hero" size="xl" className="border-2 border-primary-foreground/50 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground hover:text-primary backdrop-blur-sm animate-neon-glow" asChild>
                 <Link to="/portfolio">
                   View Our Work
@@ -339,9 +335,11 @@ const Home = () => {
             Contact us today for a free consultation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: "400ms" }}>
-            <Button variant="secondary" size="xl" asChild>
-              <Link to="/contact">Get Free Consultation</Link>
-            </Button>
+            <ContactModal trigger={
+              <Button variant="secondary" size="xl">
+                Get Free Consultation
+              </Button>
+            } />
             <Button variant="hero" size="xl" className="border-2 border-primary-foreground/50 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground hover:text-primary backdrop-blur-sm animate-neon-glow" asChild>
               <Link to="/services">
                 Explore Services
