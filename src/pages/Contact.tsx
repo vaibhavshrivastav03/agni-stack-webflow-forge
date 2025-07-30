@@ -51,7 +51,7 @@ const Contact = () => {
         redirect: "follow" as RequestRedirect
       };
 
-      const response = await fetch("https://mail.agnistack.com/index.php", requestOptions);
+      const response = await fetch("https://cors-anywhere.herokuapp.com/https://mail.agnistack.com/index.php", requestOptions);
       const result = await response.text();
       
       if (response.ok) {
