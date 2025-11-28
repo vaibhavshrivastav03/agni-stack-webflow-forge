@@ -101,8 +101,8 @@ const Contact = () => {
     {
       icon: <MapPin size={24} />,
       title: "Visit Us",
-      value: "123 Tech Hub Street",
-      description: "Innovation City, IC 12345"
+      value: "Mahalaxmi nagar",
+      description: "Indore, MP 452010"
     },
     {
       icon: <Clock size={24} />,
