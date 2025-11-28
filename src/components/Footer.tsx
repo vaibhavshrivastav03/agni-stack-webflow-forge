@@ -78,7 +78,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center space-x-2">
                 <MapPin size={16} />
-                <span className="text-primary-foreground/80 text-sm">Tech Hub, Innovation City</span>
+                <span className="text-primary-foreground/80 text-sm">Mahalaxmi nagar indore mp 452010</span>
               </li>
             </ul>
           </div>
