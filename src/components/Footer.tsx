@@ -56,6 +56,11 @@ const Footer = () => {
                   Contact
                 </Link>
               </li>
+              <li>
+                <Link to="/privacy-policy" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -65,11 +70,11 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center space-x-2">
                 <Mail size={16} />
-                <span className="text-primary-foreground/80 text-sm">info@agnistack.com</span>
+                <span className="text-primary-foreground/80 text-sm">agnistack28@gmail.com</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone size={16} />
-                <span className="text-primary-foreground/80 text-sm">+1 (555) 123-4567</span>
+                <span className="text-primary-foreground/80 text-sm">7024292825</span>
               </li>
               <li className="flex items-center space-x-2">
                 <MapPin size={16} />
