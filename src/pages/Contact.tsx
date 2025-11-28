@@ -89,13 +89,13 @@ const Contact = () => {
     {
       icon: <Mail size={24} />,
       title: "Email Us",
-      value: "info@agnistack.com",
+      value: "agnistack28@gmail.com",
       description: "Send us an email anytime"
     },
     {
       icon: <Phone size={24} />,
       title: "Call Us",
-      value: "+1 (555) 123-4567",
+      value: "7024292825",
       description: "Mon-Fri 9AM-6PM EST"
     },
     {
